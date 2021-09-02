@@ -3,7 +3,7 @@ let i = 0;
 let numbers = [];
 var num = 0;
 // While ციკლით
-while (i < 100) {
+while (true) {
     if (n / 2 < 50) {
         break
     } else {
