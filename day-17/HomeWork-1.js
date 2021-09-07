@@ -14,11 +14,11 @@ function getDivisors(number) {
                 }
 
             }
-            console.log(nums);
+            console.log(nums.reverse());
         }
 
     } catch (err) {
         console.log(err.message);
     }
 }
-getDivisors(32)
+getDivisors(0)
