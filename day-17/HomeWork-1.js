@@ -9,10 +9,10 @@ function getDivisors(number) {
         } else {
             for (let i = 1; i <= number; i++) {
                 if (number % i == 0) {
-                    nums.push(number / i)
+                    nums.push(i)
                 }
             }
-            console.log(nums.reverse());
+            console.log(nums);
         }
 
     } catch (err) {
