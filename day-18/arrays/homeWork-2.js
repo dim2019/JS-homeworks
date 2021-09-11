@@ -1,20 +1,20 @@
-const arr = [1, 2, 3]
-let reverse = () => {
-    var removed = []
+const arr = []
+let reverse = (array) => {
+    let removed
     try {
         if (typeof arr !== "object") {
             throw new TypeError('parameter required and has to be only array')
         } else if (arr == '') {
             throw new TypeError('passed empty array')
         } else {
-            while (arr.length > 0) {
-                removed.push(arr.pop())
+            for (i in array) {
+                removed = array.splice(i, 1);
+                array.unshift(removed);
             }
-            arr.unshift(removed)
-            return arr.flat()
         }
+        return array.flat();
     } catch (err) {
         console.log(err.message);
     }
 }
-console.log(reverse());
+console.log(reverse(arr));
