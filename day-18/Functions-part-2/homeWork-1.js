@@ -1,8 +1,7 @@
-let Errors = { errors: [] };
+let Errors = { errors: [], value: 0 };
 
 function mix(...functions) {
     let result
-    let FuncValue = { value: 0 }
     for (var cb = 0; cb < functions.length; cb++) {
         try {
             if (cb == 0) {
@@ -18,10 +17,9 @@ function mix(...functions) {
                 "level": cb,
             })
         }
-        FuncValue.value = result
+        Errors.value = result
     }
     console.log(Errors);
-    console.log(FuncValue);
 }
 const mx = mix(() => {
     return 0;
