@@ -1,8 +1,7 @@
 function readingStatus(books) {
     for (i in books) {
-        if (books[i].haveRead) console.log("'" + books[i].author + ' have read ' + books[i].title + ' book' + "'");
-        else console.log("'" + books[i].author + " haven't read " + books[i].title + ' book yet' + "'");
-
+        if (books[i].haveRead) console.log(`'${books[i].author} have read ${books[i].title} book'`);
+        else console.log(`'${books[i].author} haven't read ${books[i].title} book yet'`);
     }
 
 }
@@ -26,7 +25,3 @@ var Books = [{
     }
 ]
 readingStatus(Books);
-
-// 'Bill have read The Road Ahead book'
-// 'Steve have read Walter Isaacson book'
-// 'Jhon haven't read The Hunger Games book yet'

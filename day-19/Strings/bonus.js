@@ -4,7 +4,7 @@ function searchWord(text, word) {
         var count = (text, word) => {
             return text.split(word).length - 1;
         }
-    return ('"' + "'" + word + "'" + ' was found ' + count(text, word) + ' times.' + '"')
+    return (`"'${word}' was found ${count(text, word)} times."`)
 }
 const HTML = searchWord('The quick brown fox', 'fox')
 console.log(HTML);
