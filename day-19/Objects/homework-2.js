@@ -3,8 +3,7 @@ function readingStatus(books) {
         Object.defineProperty(books[i], "daysAgo", {
             get() {
                 const oneDay = 24 * 60 * 60 * 1000;
-                const Ago = Math.round(Math.abs((new Date() - this.dateOfRead) / oneDay));
-                return Ago
+                return Math.round(Math.abs((new Date() - this.dateOfRead) / oneDay));
             }
         })
         if (books[i].haveRead) console.log(`${books[i].author} have read ${books[i].title} book ${books[i].daysAgo} ago`);
