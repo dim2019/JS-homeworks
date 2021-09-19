@@ -4,9 +4,8 @@ Object.prototype.mergeDeepRight = function(args) {
         else if (typeof args[key] === 'object') {
             if (Array.isArray(args[key])) {
                 for (i of args[key]) {
-                    this[key].push(i)
+                    this[key].unshift(i)
                 }
-                return this[key].reverse()
             } else if ((this.hasOwnProperty(key)) == false) {
                 this[key] = {}
             }
