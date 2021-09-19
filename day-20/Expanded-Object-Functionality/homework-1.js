@@ -1,16 +1,18 @@
 Object.prototype.mergeDeepRight = function(args) {
     for (key in args) {
         if (args[key] == mergeDeepRight) continue
-        else if (typeof args[key] === 'object') {
+        else if (typeof args[key] !== 'object') this[key] = args[key]
+        else {
             if (Array.isArray(args[key])) {
                 for (i of args[key]) {
                     this[key].unshift(i)
                 }
+
             } else if ((this.hasOwnProperty(key)) == false) {
                 this[key] = {}
             }
             this[key].mergeDeepRight(args[key])
-        } else this[key] = args[key]
+        }
 
     }
 }
@@ -36,4 +38,4 @@ data.mergeDeepRight({
         }
     }
 });
-console.log(data.contact);
+console.log(data);
