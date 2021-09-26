@@ -19,15 +19,6 @@ function CoffeeMachine(power, capacity) {
     this.getWaterAmount = function() {
         return waterAmount
     }
-
-    function check() {
-        if (Boolean(this.setOnReady) == true) {
-            return true
-        } else {
-            return false
-        }
-
-    }
     var isrunning = false
     this.isRunning = function() {
         return isrunning
