@@ -1,7 +1,4 @@
 class Validator {
-    constructor(string) {
-        this.string = string
-    }
     isEmail(email) {
         let regexEmail = /^\S+@\S+\.\S+$/;
         if (email == '') return false
