@@ -3,8 +3,8 @@ const send = url =>
     new Promise((resolve, reject) => {
         get(url, (error, meta, body) => {
             if (meta.status == 200) {
-                const { data } = JSON.parse(body)
-                resolve(`This parameter is an array that contains a list of country objects`)
+                const data = JSON.parse(body)
+                resolve(data)
             }
             reject(`We have error, status code: ${meta.status}`)
         })
