@@ -5,7 +5,7 @@ class Countries {
     }
     send(city) {
         if (typeof city !== 'string') throw new TypeError("parameter isn't a string")
-        const Url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=299fb2133133f9d8fc214f5ae28ca753`
+        const Url = this.url.substring(0, 50) + `${city}` + this.url.substring(50, this.url.length);
         return new Promise((resolve, reject) => {
             get(Url, (error, meta, body) => {
                 if (meta.status == 200) {
