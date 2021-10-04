@@ -5,7 +5,9 @@ class Countries {
     }
     send(city) {
         if (typeof city !== 'string') throw new TypeError("parameter isn't a string")
-        const Url = this.url.substring(0, 50) + `${city}` + this.url.substring(50, this.url.length);
+        let regex = /&appid/i
+        const insertindex = url.match(regex).index
+        const Url = this.url.substring(0, insertindex) + `${city}` + this.url.substring(insertindex, this.url.length);
         return new Promise((resolve, reject) => {
             get(Url, (error, meta, body) => {
                 if (meta.status == 200) {
