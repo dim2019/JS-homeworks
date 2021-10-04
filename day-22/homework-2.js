@@ -6,7 +6,7 @@ class Countries {
     send(city) {
         if (typeof city !== 'string') throw new TypeError("parameter isn't a string")
         let regex = /&appid/i
-        const insertindex = url.match(regex).index
+        const insertindex = this.url.match(regex).index
         const Url = this.url.substring(0, insertindex) + `${city}` + this.url.substring(insertindex, this.url.length);
         return new Promise((resolve, reject) => {
             get(Url, (error, meta, body) => {
