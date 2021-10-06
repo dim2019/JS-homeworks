@@ -1,37 +1,40 @@
-const map = new Map()
 class DB {
+    constructor() {
+        this.map = new Map()
+        this.NewArrOFUsers = []
+    }
     create(obj) {
         if (typeof obj !== 'object') throw new TypeError('invaild Object')
         const id = `uniqueID_${Math.random().toString(36).substring(2, 8)}`
-        map.set(id, obj)
+        this.map.set(id, obj)
         return id
 
     }
     read(id) {
         if (id == '') throw new TypeError('required id')
         else if (typeof id !== 'string') throw new TypeError('invaild id')
-        return map.has(id) ? map : null
+        return this.map.has(id) ? this.map : null
 
     }
     readAll(par) {
         par == undefined
         if (typeof par !== 'undefined') throw new TypeError('parameter is denied')
-        let ArrayOfUsers = []
-        map.forEach((value) => {
-            ArrayOfUsers.push(value.name)
+
+        this.map.forEach((value) => {
+            this.NewArrOFUsers.push(value)
         })
-        console.log(ArrayOfUsers);
+        console.log(this.NewArrOFUsers);
     }
     update(id, obj) {
         if (typeof id == 'undefined' || typeof obj == 'undefined' && id == '' || obj == '') throw new TypeError('parameter is required')
-        else if (!(map.has(id))) {
+        else if (!(this.map.has(id))) {
             throw new Error("non-existing id is passed")
         } else if (typeof id !== 'string') {
             throw new TypeError("id is passed with a type not a string")
         } else if (typeof obj !== 'object') {
             throw new TypeError("second parameter should be object")
         } else {
-            map.forEach((value, key) => {
+            this.map.forEach((value, key) => {
                 if (key == id) {
                     Object.assign(value, obj)
                     console.log(key);
@@ -40,9 +43,9 @@ class DB {
         }
     }
     delete(id) {
-        if (!(map.has(id))) throw new TypeError('non-existent ID')
+        if (!(this.map.has(id))) throw new TypeError('non-existent ID')
         else if (typeof id !== 'string') throw new TypeError('invaild id')
-        else map.delete(id)
+        else this.map.delete(id)
         console.log(true);
     }
 }
