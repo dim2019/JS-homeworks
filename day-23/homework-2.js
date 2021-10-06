@@ -50,9 +50,45 @@ class DB {
     }
     find(args) {
         this.NewArr = []
-        this.map.forEach((value, key) => {
-            if (1) {}
+        this.map.forEach((value) => {
+            try {
+                for (var i in args) {
+                    if (value[i] == args[i]) {
+                        continue
+                    } else if (i == 'age') {
+                        for (var j in args[i]) {
+                            if (j == 'min') {
+                                if (value[i] < args[i][j]) {
+                                    throw new Error('')
+                                }
+                            } else if (j == 'max') {
+                                if (args[i][j] < value[i]) {
+                                    throw new Error('')
+                                }
+                            }
+
+                        }
+
+                    } else if (i == 'salary') {
+                        for (var k in args[i]) {
+                            if (k == 'min') {
+                                if (value[i] < args[i][k]) {
+                                    throw new Error('')
+                                }
+                            } else if (k == 'max') {
+                                if (args[i][k] < value[i]) {
+                                    throw new Error('')
+                                }
+                            }
+
+                        }
+                    } else throw new Error('error')
+                }
+                this.NewArr.push(value)
+            } catch (err) {}
+
         })
+        return this.NewArr
     }
 }
 const db = new DB();
@@ -73,9 +109,9 @@ const person2 = {
 
 const query = {
     name: 'Pitter',
-    country: 'ua',
+    country: 'ge',
     age: {
-        min: 21
+        min: 21,
     },
     salary: {
         min: 300,
@@ -85,3 +121,4 @@ const query = {
 const id = db.create(person);
 const id2 = db.create(person2);
 const customers = db.find(query); // array of users
+console.log(customers);
