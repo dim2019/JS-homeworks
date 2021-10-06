@@ -50,6 +50,10 @@ class DB {
     }
     find(args) {
         this.NewArr = []
+        if (typeof args !== 'object') throw new TypeError("`query` is not valid")
+        else if (args == '') {
+            throw new TypeError("`query` is not valid")
+        }
         this.map.forEach((value) => {
             try {
                 for (var i in args) {
