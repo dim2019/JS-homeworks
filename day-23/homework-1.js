@@ -11,9 +11,13 @@ class DB {
 
     }
     read(id) {
+        let NewObject = {}
         if (id == '') throw new TypeError('required id')
         else if (typeof id !== 'string') throw new TypeError('invaild id')
-        return this.map.has(id) ? this.map : null
+        this.map.has(id) ? this.map.forEach((USER, ID) => {
+            Object.assign(NewObject, USER, { ID })
+        }) : null
+        return NewObject
 
     }
     readAll(par) {
@@ -69,6 +73,7 @@ const id = db.create(person);
 // const id2 = db.create(person2);
 // const id3 = db.create(person3);
 const customer = db.read(id);
-const customers = db.readAll(); // array of users
-db.update(id, { age: 22 }); // id
-db.delete(id); // true
+console.log(customer);
+// const customers = db.readAll(); // array of users
+// db.update(id, { age: 22 }); // id
+// db.delete(id); // true
