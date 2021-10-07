@@ -73,7 +73,7 @@ const id = db.create(person);
 // const id2 = db.create(person2);
 // const id3 = db.create(person3);
 const customer = db.read(id);
-console.log(customer);
-// const customers = db.readAll(); // array of users
-// db.update(id, { age: 22 }); // id
-// db.delete(id); // true
+// console.log(customer);
+const customers = db.readAll(); // array of users
+db.update(id, { age: 22 }); // id
+db.delete(id); // true
