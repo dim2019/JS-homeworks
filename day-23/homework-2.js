@@ -21,7 +21,7 @@ class DB {
         if (typeof par !== 'undefined') throw new TypeError('parameter is denied')
         let ArrayOfUsers = []
         this.map.forEach((value) => {
-            ArrayOfUsers.push(value.name)
+            ArrayOfUsers.push(value)
         })
         console.log(ArrayOfUsers);
     }
