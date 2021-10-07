@@ -11,9 +11,14 @@ class DB {
 
     }
     read(id) {
+        let NewObject = {}
         if (id == '') throw new TypeError('required id')
         else if (typeof id !== 'string') throw new TypeError('invaild id')
-        return this.map.has(id) ? this.map : null
+        this.map.has(id) ? this.map.forEach((USER, ID) => {
+            Object.assign(NewObject, USER, { ID })
+        }) : null
+        return NewObject
+
 
     }
     readAll(par) {
