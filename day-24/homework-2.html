@@ -18,17 +18,18 @@
         const NextBTN = document.getElementById("NextBTN")
         const imageArr = [
             'https://i.pinimg.com/originals/46/87/7a/46877a653c8627ff3c253893f1d85bb9.jpg',
-            'https://images-na.ssl-images-amazon.com/images/I/41npNJShzmL.jpg',
+            'https://images.ctfassets.net/hrltx12pl8hq/66lRNN2kfHcVSUMrmrcKxf/76b78071032586ff9766d8eb51592f21/free-nature-images.jpg?fit=fill&w=840&h=350',
             'https://5.imimg.com/data5/YE/OY/MY-8538014/gex-150-ac-professional-random-orbital-sander-500x500.jpg',
-            'https://www.nasa.gov/images/content/98681main_g292rgb_m.jpg',
-            'http://itu150.org/wp-content/uploads/2015/05/gates-web-500x500.jpg',
+            'https://media.istockphoto.com/photos/cool-cat-with-shades-picture-id1249884596?k=20&m=1249884596&s=170667a&w=0&h=dQYj7GUCKb1T8lVzRsEoI_77a4d9ysJlrKRbE94Hl4E=', 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
             'https://cdn.theatlantic.com/thumbor/R0tWk54mdehhXw8TqlPV4a4j2GI=/305x0:1695x1390/500x500/media/img/photo/2020/02/photos-superb-owl-sunday-iv/s01_1103328920-1/original.jpg'
 
         ]
         NextBTN.addEventListener('click', () => {
             IMG.src = imageArr[Math.floor(Math.random() * 6)]
         })
-        IMGLength.innerHTML = `length of images are "${imageArr.length}"`
+        IMG.addEventListener('load', () => {
+            IMGLength.innerHTML = `Image width is "${IMG.clientWidth}px" and image height is "${IMG.clientHeight}px"`
+        })
     </script>
 
 </body>
