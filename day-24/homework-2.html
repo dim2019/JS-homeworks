@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img id="IMG" src="https://cdn.theatlantic.com/thumbor/R0tWk54mdehhXw8TqlPV4a4j2GI=/305x0:1695x1390/500x500/media/img/photo/2020/02/photos-superb-owl-sunday-iv/s01_1103328920-1/original.jpg" alt="">
+    <p id="IMGLength"></p>
+    <button id="NextBTN">Next Image</button>
+    <script>
+        const IMG = document.getElementById("IMG")
+        const IMGLength = document.getElementById("IMGLength")
+        const NextBTN = document.getElementById("NextBTN")
+        const imageArr = [
+            'https://i.pinimg.com/originals/46/87/7a/46877a653c8627ff3c253893f1d85bb9.jpg',
+            'https://images-na.ssl-images-amazon.com/images/I/41npNJShzmL.jpg',
+            'https://5.imimg.com/data5/YE/OY/MY-8538014/gex-150-ac-professional-random-orbital-sander-500x500.jpg',
+            'https://www.nasa.gov/images/content/98681main_g292rgb_m.jpg',
+            'http://itu150.org/wp-content/uploads/2015/05/gates-web-500x500.jpg',
+            'https://cdn.theatlantic.com/thumbor/R0tWk54mdehhXw8TqlPV4a4j2GI=/305x0:1695x1390/500x500/media/img/photo/2020/02/photos-superb-owl-sunday-iv/s01_1103328920-1/original.jpg'
+
+        ]
+        NextBTN.addEventListener('click', () => {
+            IMG.src = imageArr[Math.floor(Math.random() * 6)]
+        })
+        IMGLength.innerHTML = `length of images are "${imageArr.length}"`
+    </script>
+
+</body>
+
+</html>
