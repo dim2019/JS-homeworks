@@ -62,6 +62,10 @@ class DB {
         this.map.forEach((value) => {
             try {
                 for (var i in args) {
+                    const propOwn = Object.getOwnPropertyNames(args.age);
+                    if (propOwn.length == 0) {
+                        throw new Error("")
+                    }
                     if (value[i] == args[i]) {
                         continue
                     } else if (i == 'age') {
@@ -79,6 +83,10 @@ class DB {
                         }
 
                     } else if (i == 'salary') {
+                        const propOwn2 = Object.getOwnPropertyNames(args.salary);
+                        if (propOwn2.length == 0) {
+                            throw new Error("")
+                        }
                         for (var k in args[i]) {
                             if (k == 'min') {
                                 if (value[i] < args[i][k]) {
